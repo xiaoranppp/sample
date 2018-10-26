@@ -14,12 +14,20 @@
 </canvas>
 
 <script>
+
 	//Rectangles
 	var canvas = document.querySelector('canvas');
 	var ctx = canvas.getContext('2d');
 	ctx.fillStyle = 'green';
 	ctx.fillRect(200, 200, 100, 100);
-	ctx.strokeRect(225,225,50,50);
+	
+	ctx.fillStyle = 'red';
+	//ctx.fillRect(225,225,50,50);
+    ctx.beginPath();
+    ctx.arc(250, 250, 30, 0, 2 * Math.PI, true);
+    ctx.closePath();
+    ctx.fill();
+	//ctx.arc(225,225,50,0,Math.PI*2,true); 
 	ctx.clearRect(250,250,10,10);
 
 
@@ -33,8 +41,8 @@
 	ctx.beginPath();					 //quit old drawing, start new one
 	ctx.arc(75,75,50,0,Math.PI*2,true);  // Outer circle
 
-	ctx.moveTo(110,75);					 
-	ctx.arc(75,75,35,0,Math.PI,false);   // Mouth
+	ctx.moveTo(105,110);					 
+	ctx.arc(75,110,30,0,Math.PI,true);   // Mouth
 
 
 
@@ -48,32 +56,33 @@
 	//Lines
 	// Filled triangle
 	ctx.beginPath();
-	ctx.moveTo(325,325);
-	ctx.lineTo(405,325);
-	ctx.lineTo(325,405);
+	ctx.moveTo(425,345);
+	ctx.lineTo(345,345);
+	ctx.lineTo(425,425);
 	ctx.fillStyle = 'blue';
 	ctx.fill();
 
 	// Stroked triangle
 	ctx.beginPath();
-	ctx.moveTo(425,425);
-	ctx.lineTo(425,345);
-	ctx.lineTo(345,425);
+	ctx.moveTo(345,425);
+	ctx.lineTo(345,345);
+	ctx.lineTo(425,425);
 	ctx.closePath();
 	ctx.stroke();
 
 
 	//Text
+	//Text
 	ctx.fillStyle = '#00F';
 	ctx.font = 'Italic 30px Sans-Serif';
 
-	ctx.fillText('Becca', 300, 50);
+	ctx.fillText('Different Font!', 300, 50);
 
-	ctx.font = 'Bold 30px Sans-Serif';
-	ctx.strokeText('JavaScript!', 300, 150);
+	ctx.font = 'Bold 30px Sas-Serif';
+	ctx.strokeText('Xiaoran', 80, 400);
 
 
-	function myFunction(){
+ 	function myFunction(){
     var x = document.getElementById("myFile");
     var txt = "";
     if ('files' in x) {
@@ -96,10 +105,14 @@
         }
     }
     
-}
+}    
+    
+
+        
 </script>
 
 	<br><input type="file" id="myFile" size="50" onchange="myFunction()"><br>
+
 
 </body>
 </html>
